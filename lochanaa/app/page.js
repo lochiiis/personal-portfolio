@@ -13,6 +13,26 @@ export default function Home() {
     "Detail Detective",
     "Software Sculptor",];
 
+  const frontendSkills = [
+    { src: "https://img.icons8.com/color/64/html-5--v1.png", alt: "HTML" },
+    { src: "https://img.icons8.com/color/64/css3.png", alt: "CSS" },
+    { src: "https://img.icons8.com/color/64/javascript--v1.png", alt: "JavaScript" },
+    { src: "https://img.icons8.com/color/64/react-native.png", alt: "React" },
+    { src: "https://img.icons8.com/?size=100&id=MWiBjkuHeMVq&format=png&color=000000", alt: "Next.js" },
+    { src: "https://img.icons8.com/fluency/64/tailwind_css.png", alt: "Tailwind CSS" },
+    { src: "https://img.icons8.com/?size=64&id=EZQdGLNeo7JI&format=png&color=000000", alt: "Canva" },
+    { src: "https://img.icons8.com/color/64/figma.png", alt: "Figma" },
+  ];
+
+  const backendSkills = [
+    { src: "https://img.icons8.com/color/64/java-coffee-cup-logo--v1.png", alt: "Java" },
+    { src: "https://img.icons8.com/color/64/python--v1.png", alt: "Python" },
+    { src: "https://img.icons8.com/color/64/mongo-db.png", alt: "MongoDB" },
+    { src: "https://img.icons8.com/color/64/mysql-logo.png", alt: "MySQL" },
+    { src: "https://img.icons8.com/?size=100&id=JRnxU7ZWP4mi&format=png&color=2A618E", alt: "PostgreSQL" },
+    { src: "https://img.icons8.com/?size=64&id=90519&format=png&color=000000", alt: "Spring" },
+  ];
+
   const [currentPhrase, setCurrentPhrase] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isFirstPhrase, setIsFirstPhrase] = useState(true);
@@ -60,21 +80,21 @@ export default function Home() {
 
           {/* Type writer animation */}
           <div className="mb-8 flex justify-center items-center space-x-4">
-          <p
-            className="text-2xl text-purple-300 h-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-          >
-            {currentPhrase}
-            <span
-              animate={{ opacity: [0, 1, 0] }}
-              transition={{ repeat: Infinity, duration: 2 }}
-              className="ml-1"
+            <p
+              className="text-2xl text-purple-300 h-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
             >
-              <Flower className="w-5 h-5 inline-block animate-bounce" />
-            </span>
-          </p>
+              {currentPhrase}
+              <span
+                animate={{ opacity: [0, 1, 0] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+                className="ml-1"
+              >
+                <Flower className="w-5 h-5 inline-block animate-bounce" />
+              </span>
+            </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -97,8 +117,8 @@ export default function Home() {
       <section id="about" className="py-20 relative">
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">About Me</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">About Me</h2>
             <div className="w-24 h-1 bg-linear-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
           </div>
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -106,15 +126,79 @@ export default function Home() {
               <p className="text-lg text-white/80 mb-6 leading-relaxed">
                 I am a passionate Computer Science undergraduate developer with a love for creating innovative web solutions. I thrive in innovative spaces, always eager to learn, collaborate, and push boundaries to create efficient and impactful solutions.
               </p>
-              
+
             </div>
-            
-              <div>
-                <Image width={400} height={400}/>
-              </div>
-            
+
+            <div>
+              <Image
+                src="/image/Lochana1.jpg"
+                alt="Profile Picture"
+                width={300}
+                height={300}
+                className="rounded-full mx-auto border-4 border-white/20 hover:scale-105 transition-all duration-300"
+              />
+            </div>
+
           </div>
         </div>
+
+
+
+        {/* Skills section */}
+        <div className="my-20 flex flex-wrap justify-center gap-10">
+          {/* Frontend */}
+          <div className="bg-opacity-20 backdrop-blur-lg p-8 rounded-xl shadow-lg border border-purple-900 w-full sm:w-80 md:w-[45%] lg:w-[30%]">
+            <p className="text-md sm:text-lg md:text-2xl font-semibold mb-4 text-purple-300 text-center uppercase tracking-widest">
+              Frontend Development
+            </p>
+            <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-3 place-items-center">
+              {frontendSkills.map((skill, index) => (
+                <div key={index} className="relative group">
+                  <Image
+                    src={skill.src}
+                    alt={skill.alt}
+                    width={90}
+                    height={90}
+                    className="p-5 transition-transform duration-300 transform group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-gray-800 text-white text-xs sm:text-sm px-1 py-1">
+                      {skill.alt}
+                    </div>
+                  </div>
+                  <span className="absolute inset-0 border-2 border-transparent group-hover:border-purple-400 transition-all duration-300 rounded-lg shadow-lg group-hover:shadow-purple-500/50"></span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Backend */}
+          <div className="bg-opacity-20 backdrop-blur-lg p-8 rounded-xl shadow-lg border border-blue-900 w-full sm:w-80 md:w-[45%] lg:w-[30%]">
+            <p className="text-md sm:text-lg md:text-2xl font-semibold mb-4 text-blue-300 text-center uppercase tracking-widest">
+              Backend & Database
+            </p>
+            <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-3 place-items-center">
+              {backendSkills.map((skill, index) => (
+                <div key={index} className="relative group">
+                  <Image
+                    src={skill.src}
+                    alt={skill.alt}
+                    width={90}
+                    height={90}
+                    className="p-5 transition-transform duration-300 transform group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-gray-800 text-white text-xs sm:text-sm px-1 py-1">
+                      {skill.alt}
+                    </div>
+                  </div>
+                  <span className="absolute inset-0 border-2 border-transparent group-hover:border-blue-400 transition-all duration-300 rounded-lg shadow-lg group-hover:shadow-blue-500/50"></span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
       </section>
 
       {/* Projects Section */}
