@@ -187,7 +187,7 @@ export default function Home() {
 
             <div>
               <Image
-                src="/Lochana.jpg"
+                src="/image/lochana.png"
                 alt="Profile Picture"
                 width={300}
                 height={300}
