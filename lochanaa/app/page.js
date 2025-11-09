@@ -1,10 +1,10 @@
 "use client";
 
-import { div } from "framer-motion/client";
-import { Flower } from "lucide-react";
+import Contact from "@/components/Contact";
+import { Flower, GithubIcon, LinkedinIcon, MailIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 export default function Home() {
 
@@ -46,14 +46,14 @@ export default function Home() {
       technologies: ["Figma"],
       link: "https://www.linkedin.com/posts/lochana-methsiluni_ix24-greencity-thevisionaries-activity-7242168836496465920-JUEr?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEeArdkBFEFDms5C_oW-yQF9GEixcVMqLkk",
     },
-        {
+    {
       title: "PledgeIt",
       description: "Volunteer Management Platform.",
       image: "/image/pledgeIt.png",
       technologies: ["React", "Tailwind CSS", "FastApi", "MongoDB"],
-      link: "https://github.com/PledgeIt-SDGP",
+      link: "https://pledgeit.live"
     },
-        {
+    {
       title: "Dwellingz",
       description: "Property listing website.",
       image: "/image/estate.png",
@@ -81,6 +81,7 @@ export default function Home() {
       image: "/image/ticket.png",
       technologies: ["Java", "SpringBoot", "React"],
       link: "https://github.com/lochiiis/Real-Time-Event-Ticketing-System",
+
     },
     {
       title: "SkyVoyage",
@@ -88,6 +89,7 @@ export default function Home() {
       image: "/image/skyV.png",
       technologies: ["Figma"],
       link: "#",
+
     },
   ];
 
@@ -127,7 +129,7 @@ export default function Home() {
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute  bg-black/20"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-linear-to-r from-purple-400 via-violet-500 to-pink-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 bg-linear-to-r from-purple-400 via-violet-500 to-pink-400 bg-clip-text text-transparent">
             Hi I{`'`}m <br />Lochana Methsiluni
           </h1>
 
@@ -135,7 +137,7 @@ export default function Home() {
           {/* Type writer animation */}
           <div className="mb-8 flex justify-center items-center space-x-4">
             <p
-              className="text-2xl text-purple-300 h-8"
+              className="text-lg sm:text-xl text-purple-300 h-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
@@ -151,8 +153,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/work" className="px-8 py-4 bg-linear-to-r from-blue-900 to-purple-600/50 text-white font-semibold rounded-full hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <Link href="#projects" className="px-8 py-4 bg-linear-to-r from-blue-900 to-purple-600/50 text-white font-semibold rounded-full hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25">
               View My Work
             </Link>
             <Link href="Lochana Methsiluni-CV.pdf" className="px-8 py-4 bg-linear-to-r from-blue-900 to-purple-600/50 text-white font-semibold rounded-full hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25">
@@ -177,7 +179,7 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-lg text-white/80 mb-6 leading-relaxed">
+              <p className="text-md sm:text-lg text-white/80 mb-6 leading-relaxed">
                 I am a passionate Computer Science undergraduate developer with a love for creating innovative web solutions. I thrive in innovative spaces, always eager to learn, collaborate, and push boundaries to create efficient and impactful solutions.
               </p>
 
@@ -189,7 +191,7 @@ export default function Home() {
                 alt="Profile Picture"
                 width={300}
                 height={300}
-                className="rounded-full mx-auto border-4 border-white/20 hover:scale-105 transition-all duration-300"
+                className="rounded-full mx-auto w-48 sm:w-60 md:w-72 border-4 border-white/20 hover:scale-105 transition-all duration-300"
               />
             </div>
 
@@ -199,7 +201,8 @@ export default function Home() {
 
 
         {/* Skills section */}
-        <div className="my-20 flex flex-wrap justify-center gap-10">
+        <div className="sm:my-20 flex flex-wrap justify-center gap-8 px-4">
+          <h2 className="text-xl md:text-2xl text-white font-semibold mb-2 sm:mb-8 w-full text-center">Languages and Tools I{`'`}m Growing With</h2>
           {/* Frontend */}
           <div className="bg-opacity-20 backdrop-blur-lg p-8 rounded-xl shadow-lg border border-purple-900 w-full sm:w-80 md:w-[45%] lg:w-[30%]">
             <p className="text-md sm:text-lg md:text-2xl font-semibold mb-4 text-purple-300 text-center uppercase tracking-widest">
@@ -256,84 +259,112 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-<section id="projects" className="py-20 relative">
-      <div className="absolute inset-0 bg-black/40" />
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            My Projects
-          </h2>
-        </div>
+      <section id="projects" className="py-20 relative">
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              My Projects
+            </h2>
+            <div className="w-24 h-1 bg-linear-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+          </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <div
-              key={project.title}
-              className="flex flex-col bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl hover:bg-white/20 transition-all duration-300 hover:scale-105"
-            >
-              <div className="overflow-hidden rounded-t-2xl relative h-48">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover object-top transition-all duration-[4000ms] hover:object-bottom"
-                />
-              </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project) => (
+              <div
+                key={project.title}
+                className="flex flex-col bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl hover:bg-white/20 transition-all duration-300 hover:scale-105"
+              >
+                <div className="overflow-hidden rounded-t-2xl relative h-48">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover object-top transition-all duration-[4000ms] hover:object-bottom"
+                  />
+                </div>
 
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-white/70 mb-4">{project.description}</p>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-white/70 mb-4">{project.description}</p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 bg-blue-500/20 text-blue-200 text-xs rounded"
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-1 bg-blue-500/20 text-blue-200 text-xs rounded"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex gap-3">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      className="flex-1 py-2 text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-medium rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300"
                     >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                      View project
+                    </a>
 
-                <div className="flex gap-3">
-                  <a
-                    href="#"
-                    target="_blank"
-                    className="flex-1 py-2 text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-medium rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300"
-                  >
-                    Live Demo
-                  </a>
-                  <a
-                    href="#"
-                    target="_blank"
-                    className="flex-1 py-2 text-center bg-white/10 border border-white/20 text-white text-sm font-medium rounded-lg hover:bg-white/20 transition-all duration-300"
-                  >
-                    Code
-                  </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 relative">
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Let us Work Together</h2>
-          <div className="w-24 h-1 bg-linear-to-r from-blue-500 to-purple-600 mx-auto rounded-full mb-8"></div>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Have a project in mind? I would love to hear about it and discuss how we can bring your ideas to life.
-          </p>
-          <button className="px-8 py-4 bg-linear-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25">
-            Get In Touch
-          </button>
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="pt-20 relative">
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Contact</h2>
+          <div className="w-24 h-1 bg-linear-to-r from-blue-500 to-purple-600 mx-auto rounded-full mb-5"></div>
+          <p className="text-md sm:text-lg text-white/80 max-w-2xl mx-auto">
+            Have a question or want to work together? Drop me a message!
+          </p>
+        </div>
+        <Contact />
+      </section>
+
+      {/* Contact Info */}
+      <div className="my-3 text-center">
+        <p className="text-white/70 mb-4">Or reach out directly:</p>
+
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-6 text-sm text-white/80">
+          <a
+            href="mailto:lochanamethsilu@gmail.com"
+            className="flex items-center justify-center gap-2 text-pink-400 hover:text-pink-600 transition-colors"
+          >
+            <MailIcon className="w-4 h-4" />
+            Email
+          </a>
+
+          <a
+            href="https://linkedin.com/lochana-methsiluni"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 text-blue-400 hover:text-blue-600 transition-colors"
+          >
+            <LinkedinIcon className="w-4 h-4" />
+            Linkedin
+          </a>
+
+          <a
+            href="https://github.com/lochiiis"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 text-purple-400 hover:text-purple-600 transition-colors"
+          >
+            <GithubIcon className="w-4 h-4" />
+            Github
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

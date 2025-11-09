@@ -31,10 +31,10 @@ export default function Navbar() {
           
         
           <div className="hidden md:flex items-center space-x-1">
-            {['Home', 'About', 'Projects', 'Contact'].map((item) => (
+            {['Home', 'About', 'Projects'].map((item) => (
               <Link
                 key={item}
-                href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                href={`#${item.toLowerCase()}`}
                 className="relative px-4 py-2 text-white/90 hover:text-white font-medium transition-all duration-300 ease-out group"
               >
                 <span className="relative z-10">{item}</span>
@@ -45,7 +45,7 @@ export default function Navbar() {
             
         
             <Link
-              href="/contact"
+              href="#contact"
               className="ml-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full hover:from-blue-600 hover:to-purple-700 transition-all duration-300 ease-out transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
             >
               Get In Touch
@@ -70,10 +70,10 @@ export default function Navbar() {
           : 'max-h-0 opacity-0 pointer-events-none'
       } overflow-hidden bg-black/95 backdrop-blur-xl border-t border-white/10`}>
         <div className="px-4 py-6 space-y-3">
-          {['Home', 'About', 'Projects', 'Contact'].map((item, index) => (
+          {['Home', 'About', 'Projects'].map((item, index) => (
             <Link
               key={item}
-              href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+              href={`#${item.toLowerCase()}`}
               onClick={() => setIsOpen(false)}
               className={`block px-4 py-3 text-white/90 hover:text-white font-medium rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-white/20 transform hover:translate-x-2`}
               style={{ animationDelay: `${index * 50}ms` }}
@@ -82,9 +82,9 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="/contact"
+            href="#contact"
             onClick={() => setIsOpen(false)}
-            className="block px-4 py-3 mt-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg text-center transition-all duration-300 hover:from-blue-600 hover:to-purple-700"
+            className="block px-4 py-3 mt-4 bg-linear-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg text-center transition-all duration-300 hover:from-blue-600 hover:to-purple-700"
           >
             Get In Touch
           </Link>
