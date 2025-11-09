@@ -280,7 +280,7 @@ export default function Home() {
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover object-top transition-all duration-[4000ms] hover:object-bottom"
+                    className="object-cover object-top transition-all duration-10000 hover:object-bottom"
                   />
                 </div>
 

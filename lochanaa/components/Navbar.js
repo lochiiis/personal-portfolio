@@ -24,7 +24,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-12 lg:h-16">
 
           <Link href="/" className="flex items-center group">
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse ">
+            <span className="text-2xl font-bold bg-linear-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse ">
               Lochanaa
             </span>
           </Link>
@@ -38,7 +38,7 @@ export default function Navbar() {
                 className="relative px-4 py-2 text-white/90 hover:text-white font-medium transition-all duration-300 ease-out group"
               >
                 <span className="relative z-10">{item}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm border border-white/10"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-blue-500/20 to-purple-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm border border-white/10"></div>
                 <div className="absolute inset-0 bg-white/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 ease-out"></div>
               </Link>
             ))}
@@ -46,7 +46,7 @@ export default function Navbar() {
         
             <Link
               href="#contact"
-              className="ml-4 px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full hover:from-blue-600 hover:to-purple-700 transition-all duration-300 ease-out transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
+              className="ml-4 px-6 py-2 bg-linear-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full hover:from-blue-600 hover:to-purple-700 transition-all duration-300 ease-out transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
             >
               Get In Touch
             </Link>
